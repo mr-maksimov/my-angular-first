@@ -26,6 +26,54 @@ export class CarComponent implements OnInit {
         }
         this.options = ['ABS','Auto Parking','ESP'];
     }
+    
+    addOption(option){
+        this.options.unshift(option);
+        return false;
+    }
+    
+    delOption(option){
+        for (let i = 0; i < this.options.length; i++){
+            if (this.options[i] == option){
+                this.options.splice(i, 1);
+                break;
+            }
+        }
+    }
+    
+    carSelect(carName){
+        if(carName == 'BMW'){
+            this.model = 'M3';
+            this.name = 'BMW';
+            this.speed = 90;
+            this.colors = {
+                car:'Blue',
+                salon:'Black',
+                wheels:'Silver'
+            }
+            this.options = ['ABS','Auto Parking'];
+        }else if(carName == 'Audi'){
+            this.model = 'A3';
+            this.name = 'Audi';
+            this.speed = 110;
+            this.colors = {
+                car:'While',
+                salon:'Black',
+                wheels:'Silver'
+            }
+            this.options = ['Auto Parking','ESP'];
+        }else if(carName == 'Mersedes'){
+            this.model = 'E200';
+            this.name = 'Mersedes';
+            this.speed = 100;
+            this.colors = {
+                car:'Black',
+                salon:'Black',
+                wheels:'Silver'
+            }
+            this.options = ['Круиз контроль'];
+        }
+    }
 }
 interface Colors{
     car:string,
